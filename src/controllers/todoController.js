@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser')
 
-const data = [{item: 'walk dog'}, {item: 'feed the fish'}, {item: 'Go to mercadona'} ]
+let data = [{item: 'walk dog'}, {item: 'feed the fish'}, {item: 'Go to mercadona'} ]
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = (app) => {
@@ -12,7 +12,11 @@ module.exports = (app) => {
         res.json(data)
     })
 
-    app.delete('/todo/delete/:id', (req, res) => {
+    app.delete('/todo/:item', (req, res) => {
 
+        data = data.filter((todo) =>{
+        return todo.item.replace(/ /g, '-') !== req.params.item
+    })
+    res.json(data)
     })
 } 
