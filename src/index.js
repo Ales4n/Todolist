@@ -4,12 +4,11 @@ const path = require('path')
 const ejs = require('ejs')
 const morgan = require('morgan')
 const session = require('cookie-session');
-// const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 
 const app = express()
 
 //Settings
-// const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.set('port', 3000)
 app.set('view engine', 'ejs')
 app.engine('html', require('ejs').renderFile)
