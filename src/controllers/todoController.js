@@ -1,10 +1,9 @@
 module.exports = (app) => {
-    app.get('/todo', (req, res) => {
-        res.render('todo')
+    app.get('/', (req, res) => {
+        res.render('index.html')
     })
-
-    app.post('/todo/add', (req, res) => {
-
+    app.get('/todo/add', (req, res) => {
+        
     })
 
     app.delete('/todo/delete/:id', (req, res) => {
